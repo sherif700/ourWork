@@ -32,19 +32,25 @@ class image
 		mysqli_query(self::$conn,$query);
 	}
 
-	function product_gallery()
+	function delete()
 	{
-		$query = "select * from gallery where id = '$this->id'";
+		$query = "delete from gallery where id='$this->id'";
+		mysqli_query(self::$conn,$query);
+
+	}
+
+	function product_gallery($p_id)
+	{
+		$query = "select * from gallery where product_id = $p_id";
 		$result = mysqli_query(self::$conn,$query);
 		$data = [];
-
 		while($row = mysqli_fetch_assoc($result)) {
 			$data[] = $row;
 		}
 		return $data;	
 	}
 
-	function getallcategory()
+	function getgallery()
 	{
 		$query = "select * from gallery";
 		$result = mysqli_query(self::$conn,$query);
