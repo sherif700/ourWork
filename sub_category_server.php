@@ -19,6 +19,13 @@ if(isset($_GET['id']))
 				$errors[] = "the name is empty";
 				$_SESSION['errors']=$errors;
 			}
+
+			if($sub_category->subcategory_is_exist($_GET['cat'],$_GET['name']))
+			{
+				$errors[] = "the subcategory is already exist";
+				$_SESSION['errors']=$errors;
+			}
+			
 			if(empty(trim($_GET['desc'])))
 			{
 				$errors[] = "the desc is empty";
@@ -70,6 +77,13 @@ else
 				$errors[] = "the name is empty";
 				$_SESSION['errors']=$errors;
 			}
+
+			if($sub_category->subcategory_is_exist($_GET['cat'],$_GET['name']))
+			{
+				$errors[] = "the subcategory is already exist";
+				$_SESSION['errors']=$errors;
+			}
+
 			if(empty(trim($_GET['desc'])))
 			{
 				$errors[] = "the desc is empty";

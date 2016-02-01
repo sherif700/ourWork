@@ -2,7 +2,18 @@
 	session_start();
 	include 'product.php';
 
-	if(isset($_GET['id']))
+
+
+	if(isset($_POST['param']))
+	{
+		$products = new product();
+		$data = $products->productnames();
+		$jsondata= json_encode($data);
+		echo $jsondata;
+	}
+	else
+	{
+			if(isset($_GET['id']))
 	{
 		if($_GET['value']=='Delete')
 		{
@@ -19,6 +30,11 @@
 			if(empty(trim($_GET['name'])))
 			{
 				$errors[] = "the name is empty";
+				$_SESSION['errors']=$errors;
+			}
+			if($products->product_is_exist($_GET['cat'],$_GET['name']))
+			{
+				$errors[] = "the product is already exist";
 				$_SESSION['errors']=$errors;
 			}
 			if(empty(trim($_GET['desc'])))
@@ -68,20 +84,8 @@
 	}
 	}else
 	{
-		/*$_GET['value']=='Add_Item'*/
 		if(isset($_GET['value']))
 		{
-			// $product = new product();
-			// $product->product_name = $_GET['name'];
-			// $product->product_desc = $_GET['desc'];
-			// $product->product_price = $_GET['price'];
-			// $product->product_quantity = $_GET['quantity'];
-			// $product->sub_cat_id = $_GET['sub'];
-			// $product->category_id = $_GET['cat'];
-			// $product->insert();
-			// $data =$product->products(); 
-			// $jsondata = json_encode($data);
-			// echo $jsondata;
 			$errors=[];
 			$products = new product();
 			if(empty(trim($_GET['name'])))
@@ -89,6 +93,13 @@
 				$errors[] = "the name is empty";
 				$_SESSION['errors']=$errors;
 			}
+			if($products->product_is_exist($_GET['cat'],$_GET['name']))
+			{
+				$errors[] = "the product is already exist";
+				$_SESSION['errors']=$errors;
+			}
+
+
 			if(empty(trim($_GET['desc'])))
 			{
 				$errors[] = "the desc is empty";
@@ -129,6 +140,7 @@
 			$jsondata= json_encode($data);
 			echo $jsondata;
 		}
+	}
 	}
 
 	?>

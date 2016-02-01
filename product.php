@@ -45,6 +45,8 @@ class product
 		mysqli_query(self::$conn,$query);
 	}
 
+
+
 	function getbysubcat($sub_cat)
 	{
 		$query="select product_name , price , image_path from products , gallery where 
@@ -84,9 +86,9 @@ class product
 		return $data;
 	}
 
-	function search_by_name($name)
+	function productnames()
 	{
-		$query = "select * from products where product_name like '%$name%'";
+		$query = "select product_name from products";
 		$result = mysqli_query(self::$conn,$query);
 		$data = [];
 
@@ -95,5 +97,32 @@ class product
 		}
 		return $data;
 	}
+
+	function search_by_name($name)
+	{
+		$query = "select * from products where product_name like '%$name%'";
+		$result = mysqli_query(self::$conn,$query);
+		$data = [];
+		while($row = mysqli_fetch_assoc($result)) {
+			$data[] = $row;
+		}
+		return $data;
+	}
+
+
+
+	function product_is_exist($sub,$p_name)
+	{
+		$query="select * from products , `sub-category`  where  `sub-category`.sub_cat_id = 
+		products.sub_cat_id and product_name = '".$p_name."' and `sub-category`.sub_cat_id = $sub";
+		$result = mysqli_query(self::$conn,$query);
+		if(empty($result))
+		{
+			return false;
+		}
+		return true;
+	}
+
+
 }
 ?>
