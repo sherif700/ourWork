@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 class order
+=======
+class shopping_cart
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 {
 	var $user_id;
 	var $product_id;
@@ -40,6 +44,7 @@ class order
 		 mysqli_query(self::$conn,$query);
 	}
 
+<<<<<<< HEAD
 	function getuserorders($id)
 	{
 		$query = "select product_name , username , quantity , date_of_buy from 
@@ -55,6 +60,9 @@ class order
 		return $data;
 
 	}
+=======
+	
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 
 	function getallorders()
 	{

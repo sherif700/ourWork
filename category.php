@@ -57,6 +57,7 @@ class category
 	{
 		$query = "select * from category where category_name = '".$name."'";
 		$result = mysqli_query(self::$conn,$query);
+<<<<<<< HEAD
 		$data = [];
 		while($row = mysqli_fetch_assoc($result)) {
 			$data[] = $row;
@@ -70,6 +71,13 @@ class category
 			return true;	
 		}
 		
+=======
+		if(empty($result))
+		{
+			return false;
+		}
+		return true;
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 	}
 
 	

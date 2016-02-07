@@ -32,10 +32,14 @@ $.ajax({
 
 		$('body').on('click',"input[value='Delete']",function(event){
 	 //body...
+<<<<<<< HEAD
 	 	 	var mksure =  confirm("Are you sure you want to delete this item ?");
 	 	 	if(mksure)
 	 	 	{
 						 	console.log(1);
+=======
+	 	console.log(1);
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 	 	$.ajax({
 	 		url: 'sub_category_server.php?id='+$(this).attr("name")+'&value='+$(this).val()+'',
 	 		type: 'GET',
@@ -60,9 +64,13 @@ $.ajax({
 	 	})
 	 	.fail(function() {
 	 		console.log("error");
+<<<<<<< HEAD
 	 	})	 	 		
 	 	 	}
 
+=======
+	 	})
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 	 });
 
 

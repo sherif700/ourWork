@@ -39,10 +39,14 @@ $(function() {
 
 	 $('body').on('click',"input[value='Delete']",function(event){
 	 //body...
+<<<<<<< HEAD
 	    var mksure =  confirm("Are you sure you want to delete this item ?");
 	    if(mksure)
 	    {
 	    		 	console.log(1);
+=======
+	 	console.log(1);
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 	 	$.ajax({
 	 		url: 'server.php?id='+$(this).attr("name")+'&value='+$(this).val()+'',
 	 		type: 'GET',
@@ -68,8 +72,11 @@ $(function() {
 	 	.fail(function() {
 	 		console.log("error");
 	 	})
+<<<<<<< HEAD
 	    }
 
+=======
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 	 });
 
 
@@ -365,8 +372,13 @@ $('body').on('click','input[value="Cancel"]',function(event){
 		var desc=$('input[name="in_description"]').val();
 		var price=$('input[name="in_price"]').val();
 		var quantity=$('input[name="in_quantity"]').val();
+<<<<<<< HEAD
 		var sub=$('#subcat').val();
 		var cat=$('#cat').val();
+=======
+		var sub=$('#cat').val();
+		var cat=$('#subcat').val();
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 		$.ajax({
 			url: 'server.php?value='+$(this).val()+'&name='+name+'&desc='+desc+'&price='+price+'&quantity='+quantity+'&sub='+sub+'&cat='+cat+'',
 			type: 'GET',

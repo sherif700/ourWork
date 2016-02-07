@@ -2,6 +2,7 @@
 	session_start();
 	include 'product.php';
 
+<<<<<<< HEAD
 	if(isset($_GET['one_product']))
 	{
 		$product = new product($_GET['one_product']);
@@ -11,6 +12,11 @@
 	else
 	{
 		if(isset($_POST['param']))
+=======
+
+
+	if(isset($_POST['param']))
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 	{
 		$products = new product();
 		$data = $products->productnames();
@@ -149,8 +155,11 @@
 	}
 	}
 
+<<<<<<< HEAD
 	}
 
 	
 
+=======
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 	?>

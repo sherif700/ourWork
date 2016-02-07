@@ -43,19 +43,27 @@ if(isset($_GET['id']))
 		<form action="operation.php" method="post" class="form col-md-6" enctype='multipart/form-data'>
 			<table class="table">
 				<tbody>
+<<<<<<< HEAD
 
 					<tr>
 						<td>Front Image</td>
+=======
+					<tr>
+						<td>image path</td>
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
 						<td><input class="form-control" type="file" name="image" /></td>
 						<input type="hidden" name="id" value="<?php echo $img_id;?>" />
 						<input type="hidden" name="p_id" value="<?php echo $_GET['p_id'];?>" />
 
 					</tr>
 					<tr>
+<<<<<<< HEAD
 						<td>Back Image</td>
 						<td><input class="form-control" type="file" name="image_back" /></td>
 					</tr>
 					<tr>
+=======
+>>>>>>> 1f70086f6b8fcff87a71f7e0f99e5362202c1290
                         <td>product</td>
 						<td><select class="form-control" name="option">"<?php 
 							echo $opt;
